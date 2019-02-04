@@ -1,0 +1,40 @@
+﻿@model CrudBasicoNETCoreMVC.Models.Caminhao
+@{
+    var estados = CrudBasicoNETCoreMVC.Util.Estados;
+}
+<div class="card">
+    <div class="header">
+        <h4 class="title">Editar Cadastro</h4>
+    </div>
+    <div class="content">
+        <form asp-action="Gravar" role="form">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Código</label>
+                        <input asp-for="@Model.Id" type="text" class="form-control border-input disabled" readonly value="@Model.Id">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Caminhão</label>
+                        <input asp-for="@Model.Nome" type="text" class="form-control border-input" placeholder="Nome" value="@Model.Nome">
+                    </div>
+                </div>                
+            </div>            
+            <div class="row">                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Modelo</label>
+                        <select asp-for="@Model.ModeloId" asp-items="@ViewBag.Modelo" class="form-control border-input"></select>
+                    </div>
+                </div>
+            </div>            
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger btn-fill btn-wd">Gravar</button>
+                <a class="btn btn-danger btn-icon  btn-fill btn-wd" asp-controller="Caminhao" asp-action="index"><i class="fa fa-undo"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

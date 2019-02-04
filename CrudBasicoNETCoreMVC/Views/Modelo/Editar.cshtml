@@ -1,0 +1,30 @@
+﻿@model CrudBasicoNETCoreMVC.Models.Modelo
+
+<div class="card">
+    <div class="header">
+        <h4 class="title">Editar Modelo</h4>
+    </div>
+    <div class="content">
+        <form asp-action="Gravar" role="form">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Código</label>
+                        <input asp-for="@Model.Id" type="text" class="form-control border-input disabled" readonly value="@Model.Id">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Descrição da Modelo</label>
+                        <input asp-for="@Model.Descricao" type="text" class="form-control border-input" placeholder="Descrição" value="@Model.Descricao">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger btn-fill btn-wd">Gravar</button>
+                <a class="btn btn-danger btn-icon  btn-fill btn-wd" asp-controller="Modelo" asp-action="index"><i class="fa fa-undo"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

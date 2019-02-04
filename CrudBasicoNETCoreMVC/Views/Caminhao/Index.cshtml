@@ -1,0 +1,40 @@
+﻿@using CrudBasicoNETCoreMVC.Models
+@model List<Caminhao>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Caminhão</h4>
+                <p class="category">
+                    Exibe lista dos Caminhões cadastrados
+                    <a class="btn btn-sm btn-success btn-icon" asp-controller="Caminhao" asp-action="editar" asp-route-id="0">Novo</a>
+                </p>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead class="text-primary" style="background-color: beige">
+                        <tr>
+                            <th>Ação</th>
+                            <th>Nome</th>
+                            <th>Modelo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a class="btn btn-sm btn-danger btn-icon" asp-controller="Caminhao" asp-action="editar" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a class="btn btn-sm btn-danger btn-icon" asp-controller="Caminhao" asp-action="excluir" asp-route-id="@item.Id"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                                <td>@item.Nome</td>
+                                <td>@item.Modelo.Descricao</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
